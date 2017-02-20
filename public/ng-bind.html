@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="nodejs">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div ng-controller="nodeCtrl">
+    <input type="text " ng-model="name" >
+    <button ng-click="clickBtn()"> 按钮 </button>
+
+    <span type="text" ng-bind="username">{{username}}</span>
+</div>
+<div>
+
+</div>
+</body>
+<script src="./angular.js"></script>
+<script>
+
+    // 凡是ng开头的指令的属性的值一定是运行在scope上下文中的表达式
+    angular.module('nodejs',[]);
+    angular.module('nodejs').controller('nodeCtrl',($timeout,$scope)=>{
+        // 控制器的作用就是为了给$scope加属性
+        //$scope.name = 'node';
+
+        $scope.clickBtn = (name) => {
+
+            alert($scope.name );
+        }
+
+
+    })
+
+</script>
+</html>
