@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="nodejs">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div ng-controller="nodeCtrl">
+        {{username}}
+    </div>
+    <div>
+
+    </div>
+</body>
+<script src="./angular.js"></script>
+<script>
+    // 当引入angular.js之后，会再window下挂在一个angular的属性
+    // 定义一个模块，第一个参数是模块的名字，第二参数是模块依赖的其它模块
+
+    // 传两个参数代表定义一个新的模块，一个参数表示获取刚才定义的哪个模块
+    angular.module('nodejs',[]);
+
+    // controller 控制器
+    // 每创建一个控制器，就会送一个$scope作用域，默认是一个空对象{
+    angular.module('nodejs').controller('nodeCtrl',($scope)=>{
+        // 控制器的作用就是为了给$scope加属性
+        $scope.username = 'node';
+    })
+
+</script>
+</html>
