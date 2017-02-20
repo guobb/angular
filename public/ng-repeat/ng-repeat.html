@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="nodeModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../ng-class/bootstrap.css">
+</head>
+<body>
+<div ng-controller="nodeController" class="container" ng-init="books = [{name:'node',price:5},{name:'js',price:10}]">
+    <table class="table table-responsive">
+        <tr>
+            <td>书名</td>
+            <td>价格</td>
+        </tr>
+        <tr ng-repeat="book in books">
+            <td>{{book.name}}</td>
+            <td><input type="text" ng-model="book.price"/></td>
+        </tr>
+    </table>
+    <table class="table table-responsive">
+        <tr>
+            <td>原金额 {{calc()}}</td>
+            <td>折扣<input type="text" ng-model="discount"/></td>
+            <td>最终价 {{calc() * (discount)}}</td>
+        </tr>
+    </table>
+</div>
+</body>
+<script src="../angular.js"></script>
+<script>
+    angular.module('nodeModule', []);
+    angular.module('nodeModule').controller('nodeController', ($rootScope, $scope) => {
+
+        $scope.calc = () => {
+            let sum = 0;
+            $scope.books.forEach((book) => {
+                sum += Number(book.price);
+            });
+
+            return sum;
+        }
+    })
+</script>
+</html>
